@@ -9,9 +9,9 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import { useTheme } from 'react-native-paper';
 
 import {
-  Colors,
   DebugInstructions,
   Header,
   LearnMoreLinks,
@@ -21,8 +21,10 @@ import {
 function Welcome(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
+  const theme = useTheme();
+
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: theme.colors.background,
   };
 
   return (
@@ -37,7 +39,7 @@ function Welcome(): JSX.Element {
         <Header />
         <View
           style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            backgroundColor: theme.colors.background,
           }}>
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
